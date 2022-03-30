@@ -2,8 +2,8 @@ name: Publish Package to npmjs
 
 on:
   push:
-    branches:
-      - release
+    tags:
+      - 'v*'
 
 jobs:
   build:

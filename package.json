@@ -11,7 +11,7 @@
     "docs": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "push": "git add . && git commit -m 'update' && git push",
-    "publish": "npm version patch && git push origin --tags && git add . && git commit -m ':rocket: publish' && git push"
+    "publish": "git add . && git commit -m ':rocket: publish' && git push && npm version patch && git push origin --tags"
   },
   "files": [
     "dist",

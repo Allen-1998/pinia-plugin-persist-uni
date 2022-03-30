@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-const META_URL = 'https://Allen-1998.github.io/pinia-plugin-persist-uni/'
+const META_URL = 'https://allen-1998.github.io/pinia-plugin-persist-uni/'
 const META_TITLE = 'Pinia Plugin Persist Uni'
 const META_DESCRIPTION = 'Persist pinia state data in uniAppStorage.'
 
