@@ -1,0 +1,35 @@
+name: Publish Package to npmjs
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config user.email "272970666@qq.com"
+          git config user.name "allen"
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org/'
+          # Defaults to the user or organization that owns the workflow file
+
+      - name: ⏳ Install dependencies
+        run: npm i
+
+      - name: 👷  Build lib
+        run: npm run build
+
+      - name: 📦 Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
