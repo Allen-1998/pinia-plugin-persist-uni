@@ -1,6 +1,6 @@
 {
   "name": "pinia-plugin-persist-uni",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/Allen-1998/pinia-plugin-persist-uni.git"
