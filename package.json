@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .ts",
     "docs": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "push": "git add . && git commit -m 'update' && git push"
+    "push": "git add . && git commit -m 'update' && git push",
+    "npm": "npm version patch && git push"
   },
   "files": [
     "dist",

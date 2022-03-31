@@ -29,9 +29,9 @@ export const updateStorage = (strategy: PersistStrategy, store: Store) => {
       return finalObj
     }, {} as PartialState)
 
-    uni.setStorageSync(storeKey, JSON.stringify(partialState))
+    uni.setStorage({ key: storeKey, data: JSON.stringify(partialState) })
   } else {
-    uni.setStorageSync(storeKey, JSON.stringify(store.$state))
+    uni.setStorage({ key: storeKey, data: JSON.stringify(store.$state) })
   }
 }
 
