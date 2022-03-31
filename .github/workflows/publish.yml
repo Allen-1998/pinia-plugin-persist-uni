@@ -1,9 +1,8 @@
 name: Publish Package to npmjs
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -22,6 +21,9 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           # Defaults to the user or organization that owns the workflow file
 
+      - id: get-version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+
       - name: ⏳ Install dependencies
         run: npm i
 
@@ -29,7 +31,7 @@ jobs:
         run: npm run build
 
       - name: 📦 Publish
-        run: npm publish
+        run: npm publish --new-version ${{ steps.get-version.outputs.VERSION }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
