@@ -1,5 +1,6 @@
 import { PiniaPluginContext } from 'pinia'
 
+const isH5 = !!uni.getSystemInfoSync().version
 export interface PersistStrategy {
   key?: string
   storage?: Storage
@@ -31,13 +32,13 @@ export const updateStorage = (strategy: PersistStrategy, store: Store) => {
       finalObj[key] = store.$state[key]
       return finalObj
     }, {} as PartialState)
-    if (storage) {
+    if (isH5 && storage) {
       storage.setItem(storeKey, JSON.stringify(partialState))
     } else {
       uni.setStorage({ key: storeKey, data: JSON.stringify(partialState) })
     }
   } else {
-    if (storage) {
+    if (isH5 && storage) {
       storage.setItem(storeKey, JSON.stringify(store.$state))
     } else {
       uni.setStorage({ key: storeKey, data: JSON.stringify(store.$state) })
@@ -50,7 +51,7 @@ export default ({ options, store }: PiniaPluginContext): void => {
     const defaultStrat: PersistStrategy[] = [
       {
         key: store.$id,
-        storage: options.persist?.H5Storage,
+        storage: options.persist?.H5Storage || sessionStorage,
       },
     ]
 
@@ -59,10 +60,10 @@ export default ({ options, store }: PiniaPluginContext): void => {
       : defaultStrat
 
     strategies.forEach((strategy) => {
-      const storage = strategy.storage || options.persist?.H5Storage
+      const storage = strategy.storage || options.persist?.H5Storage || sessionStorage
       const storeKey = strategy.key || store.$id
       let storageResult
-      if (storage) {
+      if (isH5) {
         storageResult = storage.getItem(storeKey)
       } else {
         storageResult = uni.getStorageSync(storeKey)
