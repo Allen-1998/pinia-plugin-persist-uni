@@ -1,6 +1,6 @@
 import { PiniaPluginContext } from 'pinia'
 
-const isH5 = !uni.getSystemInfoSync().version
+const isH5 = window
 
 export interface PersistStrategy {
   key?: string
