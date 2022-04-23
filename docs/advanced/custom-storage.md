@@ -4,6 +4,8 @@ By default the storage is set to sessionStorage, but you can specify the storage
 
 You can then use `sessionStorage`or `localStorage`.
 
+You have to use "window?.". Because localStorage and sessionStorage are undefined on other platforms.
+
 priority:
 strategies/storage > H5Storage > defaultStorage(sessionStorage)
 
@@ -20,10 +22,10 @@ export const useUserStore = defineStore('storeUser', {
   },
   persist: {
     enabled: true,
-    H5Storage: localStorage,
+    H5Storage: window?.localStorage,
     strategies: [
       {
-        storage: sessionStorage,
+        storage: window?.sessionStorage,
         paths: ['accessToken'],
       },
     ],
