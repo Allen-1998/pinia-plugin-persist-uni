@@ -1,11 +1,11 @@
 # Custom storage
 
-By default the storage is set to localStorage, but you can specify the storage you want to use for each strategy by setting the `storage` key.
+By default the storage is set to sessionStorage, but you can specify the storage you want to use for each strategy by setting the `storage` key.
 
 You can then use `sessionStorage`or `localStorage`.
 
 priority:
-strategies/storage > H5Storage > defaultStorage(localStorage)
+strategies/storage > H5Storage > defaultStorage(sessionStorage)
 
 ```typescript
 // store/use-user-store.ts
@@ -20,10 +20,10 @@ export const useUserStore = defineStore('storeUser', {
   },
   persist: {
     enabled: true,
-    H5Storage: sessionStorage,
+    H5Storage: localStorage,
     strategies: [
       {
-        storage: localStorage,
+        storage: sessionStorage,
         paths: ['accessToken'],
       },
     ],
