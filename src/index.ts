@@ -23,7 +23,7 @@ declare module 'pinia' {
 }
 
 export const updateStorage = (strategy: PersistStrategy, store: Store) => {
-  const storage = strategy.storage || sessionStorage
+  const storage = strategy.storage
   const storeKey = strategy.key || store.$id
 
   if (strategy.paths) {
@@ -31,19 +31,17 @@ export const updateStorage = (strategy: PersistStrategy, store: Store) => {
       finalObj[key] = store.$state[key]
       return finalObj
     }, {} as PartialState)
-    /* #ifdef H5 */
-    storage.setItem(storeKey, JSON.stringify(partialState))
-    /* #endif */
-    /* #ifndef H5 */
-    uni.setStorage({ key: storeKey, data: JSON.stringify(partialState) })
-    /* #endif */
+    if (storage) {
+      storage.setItem(storeKey, JSON.stringify(partialState))
+    } else {
+      uni.setStorage({ key: storeKey, data: JSON.stringify(partialState) })
+    }
   } else {
-    /* #ifdef H5 */
-    storage.setItem(storeKey, JSON.stringify(store.$state))
-    /* #endif */
-    /* #ifndef H5 */
-    uni.setStorage({ key: storeKey, data: JSON.stringify(store.$state) })
-    /* #endif */
+    if (storage) {
+      storage.setItem(storeKey, JSON.stringify(store.$state))
+    } else {
+      uni.setStorage({ key: storeKey, data: JSON.stringify(store.$state) })
+    }
   }
 }
 
@@ -61,15 +59,14 @@ export default ({ options, store }: PiniaPluginContext): void => {
       : defaultStrat
 
     strategies.forEach((strategy) => {
-      const storage = strategy.storage || options.persist?.H5Storage || sessionStorage
+      const storage = strategy.storage || options.persist?.H5Storage
       const storeKey = strategy.key || store.$id
       let storageResult
-      /* #ifdef H5 */
-      storageResult = storage.getItem(storeKey)
-      /* #endif */
-      /* #ifndef H5 */
-      storageResult = uni.getStorageSync(storeKey)
-      /* #endif */
+      if (storage) {
+        storageResult = storage.getItem(storeKey)
+      } else {
+        storageResult = uni.getStorageSync(storeKey)
+      }
 
       if (storageResult) {
         store.$patch(JSON.parse(storageResult))
