@@ -48,6 +48,10 @@ export default defineConfig({
                 text: 'Custom storage key',
                 link: '/advanced/custom-key',
               },
+              {
+                text: 'Custom Storage',
+                link: '/advanced/custom-storage',
+              },
             ],
           },
         ],
