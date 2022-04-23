@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as t}from"./app.94291136.js";const g='{"title":"Strategies","description":"","frontmatter":{},"headers":[],"relativePath":"advanced/strategies.md"}',e={},p=t("",6),o=[p];function c(r,i,l,u,k,d){return a(),n("div",null,o)}var m=s(e,[["render",c]]);export{g as __pageData,m as default};
