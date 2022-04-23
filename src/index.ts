@@ -50,7 +50,7 @@ export default ({ options, store }: PiniaPluginContext): void => {
     const defaultStrat: PersistStrategy[] = [
       {
         key: store.$id,
-        storage: options.persist?.H5Storage || sessionStorage,
+        storage: options.persist?.H5Storage,
       },
     ]
 
