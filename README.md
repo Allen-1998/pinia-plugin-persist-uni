@@ -1,8 +1,3 @@
----
-theme: channing-cyan
-highlight: atom-one-dark
----
-
 # 前言
 
 > 尤雨溪在 3 月 24 日晚与掘金合作的直播[链接](https://live.juejin.cn/4354/vue3)中提到，pinia 就是实际上的 vuex5，作为新一代的状态管理器，更友好的 ts 支持，更轻量的打包体积，更简化的模块管理，无疑会在将来的市场中备受欢迎。
@@ -100,7 +95,7 @@ export const useUserStore = defineStore('storeUser', {
 
 该项目也是参考了`vuex-persistedstate`和`pinia-plugin-persist`,保持了使用习惯的同时又简化了使用配置。同时在搭建项目的过程中也接触到了`github-pages`以及`github actions`的配置使用，实现了说明文档自动部署和 npm 自动发包，可谓是收获满满。
 
-目前源码已发布至 github,详情见 [源码地址](https://github.com/Allen-1998/pinia-plugin-persist-uni) [说明文档](https://allen-1998.github.io/pinia-plugin-persist-uni/) [使用案例](https://github.com/Allen-1998/uni-vue3-vite-ts-pinia)，对你有帮助或者喜欢的话请点个 Star。
+目前源码已发布至 github,详情见 [掘金文章](https://juejin.cn/post/7081275565008748552) [说明文档](https://allen-1998.github.io/pinia-plugin-persist-uni/) [使用案例](https://github.com/Allen-1998/uni-vue3-vite-ts-pinia)，对你有帮助或者喜欢的话请点个 Star。
 
 ## 参考
 
