@@ -10,6 +10,7 @@ export interface PersistStrategy {
 
 export interface PersistOptions {
   enabled: true
+  detached?: true
   H5Storage?: Storage
   strategies?: PersistStrategy[]
 }
@@ -74,10 +75,13 @@ export default ({ options, store }: PiniaPluginContext): void => {
       }
     })
 
-    store.$subscribe(() => {
-      strategies.forEach((strategy) => {
-        updateStorage(strategy, store)
-      })
-    })
+    store.$subscribe(
+      () => {
+        strategies.forEach((strategy) => {
+          updateStorage(strategy, store)
+        })
+      },
+      { detached: options.persist?.detached ? true : false }
+    )
   }
 }
