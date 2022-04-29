@@ -101,7 +101,7 @@ export const useUserStore = defineStore('storeUser', {
 - [说明文档](https://allen-1998.github.io/pinia-plugin-persist-uni/)
 - [使用案例](https://github.com/Allen-1998/uni-vue3-vite-ts-pinia)
 
-  对你有帮助或者喜欢的话请点个 Star。
+对你有帮助或者喜欢的话请点个 Star。
 
 ## 参考
 
