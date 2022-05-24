@@ -1,7 +1,7 @@
 #  pinia-plugin-persist-uni
 
 [![NPM version](https://img.shields.io/npm/v/pinia-plugin-persist-uni?color=a1b858&label=)](https://www.npmjs.com/package/pinia-plugin-persist-uni)
-[![NPM downloads](https://img.shields.io/npm/dy/pinia-plugin-persist-uni.svg?style=flat)](https://npmjs.com/package/pinia-plugin-persist-uni)
+[![NPM downloads](https://img.shields.io/npm/dm/pinia-plugin-persist-uni.svg?style=flat)](https://npmjs.com/package/pinia-plugin-persist-uni)
 
 # 前言
 
