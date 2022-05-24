@@ -1,6 +1,11 @@
+#  pinia-plugin-persist-uni
+
+[![NPM version](https://img.shields.io/npm/v/pinia-plugin-persist-uni?color=a1b858&label=)](https://www.npmjs.com/package/pinia-plugin-persist-uni)
+[![NPM downloads](https://img.shields.io/npm/dy/pinia-plugin-persist-uni.svg?style=flat)](https://npmjs.com/package/pinia-plugin-persist-uni)
+
 # 前言
 
-> 尤雨溪在 3 月 24 日晚与掘金合作的直播[链接](https://live.juejin.cn/4354/vue3)中提到，pinia 就是实际上的 vuex5，作为新一代的状态管理器，更友好的 ts 支持，更轻量的打包体积，更简化的模块管理，无疑会在将来的市场中备受欢迎。
+> 尤雨溪在 3 月 24 日晚与掘金合作的直播中提到[传送门](https://live.juejin.cn/4354/vue3)，pinia 就是实际上的 vuex5，作为新一代的状态管理器，更友好的 ts 支持，更轻量的打包体积，更简化的模块管理，无疑会在将来的市场中备受欢迎。
 
 pinia 的优点相比也不用多说了，但也正是由于其处于一个新生的阶段，周边生态还不够完善，在本人搭建项目的过程中便遇到了 pinia 在 uniapp 中数据持久化的问题。
 
