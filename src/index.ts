@@ -1,6 +1,6 @@
 import { PiniaPluginContext } from 'pinia'
 
-const isH5 = window
+const isH5 = !!alert
 
 export interface PersistStrategy {
   key?: string
@@ -25,7 +25,7 @@ declare module 'pinia' {
   }
 }
 
-export const updateStorage = (strategy: PersistStrategy, store: Store) => {
+const updateStorage = (strategy: PersistStrategy, store: Store) => {
   const storage = strategy.storage
   const storeKey = strategy.key || store.$id
 
