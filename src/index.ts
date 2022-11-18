@@ -37,7 +37,7 @@ const updateStorage = (strategy: PersistStrategy, store: Store, options?: Persis
       finalObj[key] = store.$state[key]
       return finalObj
     }, {} as PartialState)
-    if ((isCustomStorage && storage)) {
+    if (isCustomStorage && storage) {
       storage.setItem(storeKey, JSON.stringify(partialState))
     } else {
       uni.setStorage({ key: storeKey, data: JSON.stringify(partialState) })
