@@ -1,6 +1,6 @@
 import { PiniaPluginContext } from 'pinia'
 
-const isH5 = typeof alert === 'function'
+const isH5 = uni.getSystemInfoSync().uniPlatform.toLocaleLowerCase() === 'web'
 
 export interface PersistStrategy {
   key?: string
