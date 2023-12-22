@@ -1,6 +1,8 @@
 import { PiniaPluginContext } from 'pinia'
 
-const isH5 = uni.getSystemInfoSync().uniPlatform.toLocaleLowerCase() === 'web'
+const isH5 = ['web', 'h5', undefined].includes(
+  uni?.getSystemInfoSync()?.uniPlatform?.toLocaleLowerCase()
+)
 
 export interface PersistStrategy {
   key?: string
