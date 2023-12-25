@@ -21,6 +21,7 @@
   "module": "./dist/pinia-persist-uni.es.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/pinia-persist-uni.es.js",
       "require": "./dist/pinia-persist-uni.umd.js"
     }
