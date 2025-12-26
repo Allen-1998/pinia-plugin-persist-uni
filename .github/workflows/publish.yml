@@ -5,21 +5,19 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Configure Git
-        run: |
-          git config user.email "272970666@qq.com"
-          git config user.name "allen"
-
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org/'
+          registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
 
       - name: ⏳ Install dependencies
@@ -30,6 +28,3 @@ jobs:
 
       - name: 📦 Publish
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
