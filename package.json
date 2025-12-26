@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts",
     "docs": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "p": "git add . && git commit -m 'update' && git push",
+    "p": "git add . && git commit -m update && git push",
     "v": "npm version patch && git push && git push origin --tags"
   },
   "files": [
@@ -48,7 +48,7 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0",
-    "pinia": "^2.0.0",
+    "pinia": ">2.0.0",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
