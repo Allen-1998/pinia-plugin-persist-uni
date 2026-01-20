@@ -30,7 +30,7 @@ declare module 'pinia' {
 }
 
 const updateStorage = (strategy: PersistStrategy, store: Store, options?: PersistOptions) => {
-  const storage = strategy.storage
+  const storage = strategy.storage || options?.H5Storage || window?.sessionStorage
   const storeKey = strategy.key || store.$id
   // 是否需要执行自定义存储
   const isCustomStorage = isH5 || options?.enforceCustomStorage
@@ -40,7 +40,7 @@ const updateStorage = (strategy: PersistStrategy, store: Store, options?: Persis
       finalObj[key] = store.$state[key]
       return finalObj
     }, {} as PartialState)
-    if (isCustomStorage && storage) {
+    if (isCustomStorage) {
       storage.setItem(storeKey, JSON.stringify(partialState))
     } else {
       uni.setStorage({ key: storeKey, data: JSON.stringify(partialState) })
